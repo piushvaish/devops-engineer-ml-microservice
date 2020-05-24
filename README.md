@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[CircleCI status badge](https://app.circleci.com/pipelines/github/piushvaish/devops-engineer-ml-microservice/6/workflows/0752976a-59b2-4622-b33b-dc9a1a27b31e/jobs/6/steps)
 
 ## Project Overview
 
