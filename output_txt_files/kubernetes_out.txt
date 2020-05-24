@@ -1,0 +1,41 @@
+<paste log output from Kubernetes-mediated prediction, here>
+$ start.sh
+Starting Kubernetes...minikube version: v1.8.1
+commit: cbda04cf6bbe65e987ae52bb393c10099ab62014
+* minikube v1.8.1 on Ubuntu 18.04
+* Using the none driver based on user configuration
+* Running on localhost (CPUs=2, Memory=2460MB, Disk=145651MB) ...
+* OS release is Ubuntu 18.04.4 LTS
+* Preparing Kubernetes v1.17.3 on Docker 19.03.6 ...
+  - kubelet.resolv-conf=/run/systemd/resolve/resolv.conf
+* Launching Kubernetes ...
+* Enabling addons: default-storageclass, storage-provisioner
+* Configuring local host environment ...
+* Done! kubectl is now configured to use "minikube"
+* The 'dashboard' addon is enabled
+Kubernetes Started
+
+$ kubectl run mlappapi\
+>     --generator=run-pod/v1\
+>     --image=piushvaish/mlapp\
+>     --port=5000 --labels app=mlappapi
+pod/mlappapi created
+$ kubectl get pods
+NAME       READY   STATUS    RESTARTS   AGE
+mlappapi   1/1     Running   0          64s
+$ kubectl port-forward mlappapi 5000:5000
+Forwarding from 127.0.0.1:5000 -> 5000
+Forwarding from [::1]:5000 -> 5000
+Handling connection for 5000
+
+$ minikube delete
+* Uninstalling Kubernetes v1.17.3 using kubeadm ...
+* Deleting "minikube" in none ...
+* Removed all traces of the "minikube" cluster.
+
+
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
